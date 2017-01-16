@@ -6,6 +6,7 @@ angular.module('lunchChecker', [])
 
 lunchCheckerController.$inject = ['$scope'];
 function lunchCheckerController($scope, $filter) {
+    $scope.lunchItemList = '';
 
   $scope.EvaluateMenu =  function ()
   {
