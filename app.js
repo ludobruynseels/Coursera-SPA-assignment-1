@@ -19,20 +19,16 @@ function lunchCheckerController() {
 
       var s = vm.lunchItemList || '';
 
-      var items = s.split(",");
+      var items = s.split(",").filter(function(d){return d && d.trim().length>0 });;
         console.log('Lenght = ' + items.length);
 
-      var counter = 0;
-      while ( items.length > 0)
+      var index = 0;
+      while ( index < items.length )
       {
-          var s = items.pop();
-          if (s.length > 0) {
-              counter++;
-              console.log('counter = ' + counter + ' Value = ' + s);
-          }
+          console.log('counter = ' + index + ' Value = ' + items[index++]);
       }
 
-      switch (counter) {
+      switch (items.length) {
           case 1:
           case 2:
           case 3:
