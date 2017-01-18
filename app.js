@@ -4,17 +4,20 @@
 angular.module('lunchChecker', [])
 .controller('lunchCheckerController', lunchCheckerController);
 
-lunchCheckerController.$inject = ['$scope'];
-function lunchCheckerController($scope, $filter) {
-    $scope.lunchItemList = '';
+function lunchCheckerController() {
+    var vm = this;
+    vm.lunchItemList = '';
+    vm.message = '';
 
-  $scope.EvaluateMenu =  function ()
+  vm.EvaluateMenu =  function ()
   {
-      if (!$scope.lunchItemList) {
-        $scope.message = 'Please enter data first';
+
+      if (!vm.lunchItemList) {
+        vm.message = 'Please enter data first';
       return;
   }
-      var s = $scope.lunchItemList || '';
+
+      var s = vm.lunchItemList || '';
 
       var items = s.split(",");
       var numItems = items.length;
@@ -23,10 +26,10 @@ function lunchCheckerController($scope, $filter) {
           case 1:
           case 2:
           case 3:
-              $scope.message = "Enjoy!";
+              vm.message = "Enjoy!";
               break;
           default:
-              $scope.message = "Too much!";
+              vm.message = "Too much!";
       }
   };
   };
